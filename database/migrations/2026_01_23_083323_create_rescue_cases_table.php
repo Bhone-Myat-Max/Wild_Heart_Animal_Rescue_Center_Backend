@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('reported_by');
             $table->string('email')->unique();
             $table->string('phone_number');
-            $table->timestamps('description');
+            $table->string('description');
             $table->date('rescue_date');
             $table->timestamps();
         });

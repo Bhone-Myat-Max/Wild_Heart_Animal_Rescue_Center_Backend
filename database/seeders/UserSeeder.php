@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class UserSeeder extends Seeder
@@ -20,7 +21,7 @@ class UserSeeder extends Seeder
                 'address' => 'Yangon, Myanmar',
                 'status' => 'Active',
                 'email' => 'james.walker@gmail.com',
-                'password' => bcrypt('password123'),
+                'password' => Hash::make('password'),
             ],
             [
                 'name' => 'Bob',
@@ -28,7 +29,7 @@ class UserSeeder extends Seeder
                 'address' => 'Mandalay, Myanmar',
                 'status' => 'Active',
                 'email' => 'bob@gmail.com',
-                'password' => bcrypt('password123'),
+                'password' => Hash::make('password'),
             ],
             [
                 'name' => 'May Thu Aung',
@@ -36,7 +37,7 @@ class UserSeeder extends Seeder
                 'address' => 'Bago, Myanmar',
                 'status' => 'Active',
                 'email' => 'maythu@gmail.com',
-                'password' => bcrypt('password123'),
+                'password' => Hash::make('password'),
             ],
             [
                 'name' => 'Robert Smith',
@@ -44,7 +45,7 @@ class UserSeeder extends Seeder
                 'address' => 'Nay Pyi Taw, Myanmar',
                 'status' => 'Active',
                 'email' => 'robert.smith@yahoo.com',
-                'password' => bcrypt('password123'),
+                'password' => Hash::make('password'),
             ],
             [
                 'name' => 'Ko Phyo',
@@ -52,7 +53,7 @@ class UserSeeder extends Seeder
                 'address' => 'Taunggyi, Myanmar',
                 'status' => 'Active',
                 'email' => 'kophyo@gmail.com',
-                'password' => bcrypt('password123'),
+                'password' => Hash::make('password'),
             ],
         ];
 
