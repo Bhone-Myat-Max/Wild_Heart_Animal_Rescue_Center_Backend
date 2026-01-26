@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\API\BaseController;
-use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
+// use PHPOpenSourceSaver\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends BaseController
 {
