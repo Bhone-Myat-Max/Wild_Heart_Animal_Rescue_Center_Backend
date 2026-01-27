@@ -13,7 +13,7 @@ class AuthController extends BaseController
 {
     public function login(Request $request)
 
-//    {
+   {
 //     // dd($request->all());
 //      try {
 //         $credentials = $request->only(['email', 'password']);
@@ -39,5 +39,5 @@ class AuthController extends BaseController
 //     } catch (Exception $e) {
 //          return $this->error("Something went wrong!", null, 500);
 //     }
-//    }
+   }
 }

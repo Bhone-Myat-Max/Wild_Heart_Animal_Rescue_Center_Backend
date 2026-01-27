@@ -12,8 +12,15 @@ class Animal extends Model
     protected $primaryKey = 'animal_id'; // Defined in migration
 
     protected $fillable = [
-        'rescue_id', 'tagcode_name', 'species', 'gender',
-        'estimated_age', 'health_status', 'rescue_date', 'current_status'
+        'rescue_id',
+        'tagcode_name',
+        'species',
+        'gender',
+        'estimated_age',
+        'health_status',
+        // 'image', // <--- Added this to allow image uploads
+        'rescue_date',
+        'current_status'
     ];
 
     // An animal belongs to one rescue case

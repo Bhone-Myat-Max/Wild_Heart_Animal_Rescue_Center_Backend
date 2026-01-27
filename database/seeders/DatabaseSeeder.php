@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Animal;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,5 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(VolunteerSeeder::class);
         $this->call(DonationSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(AnimalSeeder::class);
+        $this->call(TreatmentSeeder::class);
+         $this->call(AdoptSeeder::class);
     }
 }
