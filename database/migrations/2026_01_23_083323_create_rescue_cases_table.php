@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('rescue_cases', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->string('species');
-            $table->string('reported_by');
-            $table->string('email')->unique();
-            $table->string('phone_number');
-            $table->string('description');
-            $table->date('rescue_date');
+
+            $table->id(); // rescue_case_id
+            $table->string('case_title');
+            $table->string('reported_by')->nullable();
+            $table->string('location');
+            $table->text('description')->nullable();
+            $table->enum('priority_level', ['Low', 'Medium', 'High', 'Emergency'])->default('Low');
+            $table->enum('case_status', ['Pending', 'In Progress', 'Completed'])->default('Pending');
+            // $table->date('reported_date')->nullable();
+            // $table->date('completed_date')->nullable();
             $table->timestamps();
         });
     }

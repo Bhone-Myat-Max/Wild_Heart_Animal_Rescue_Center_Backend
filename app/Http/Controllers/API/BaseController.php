@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
-    public function success($result, $message, $code = 200)
+    public function success($result, $message, $code = 200, $count = 0)
     {
         $response = [
             'code'    => $code,
             'success' => true,
+            'total' => $count,
             'data'    => $result,
             'message' => $message,
         ];

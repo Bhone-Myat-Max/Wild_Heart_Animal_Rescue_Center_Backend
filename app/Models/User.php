@@ -3,18 +3,23 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Treatment;
 use App\Models\RescueCase;
+use App\Models\RescueAssignment;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use PHPOpenSourceSaver\JWTAuth\Contracts\JWTSubject;
 
 
 class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use HasFactory, Notifiable, TwoFactorAuthenticatable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -28,11 +33,31 @@ class User extends Authenticatable implements JWTSubject
         'status',
         'email',
         'password',
+        'availability_status'
     ];
 
-    public function rescuecase(): HasMany
+    //     protected $casts = [
+    //     'availability_status' => 'string',
+    // ];
+
+    const STATUS_FREE = 'Free';
+    const STATUS_ON_MISSION = 'On Mission';
+    const STATUS_OFF_DUTY = 'Off Duty';
+
+    public function rescueAssignments()
     {
-        return $this->hasMany(RescueCase::class);
+        return $this->hasMany(RescueAssignment::class);
+    }
+
+    // public function rescueCases()
+    // {
+    //     return $this->belongsToMany(RescueCase::class, 'rescue_assignments')
+    //                 ->withPivot('role_in_case', 'assignment_status');
+    // }
+
+     public function treatment(): HasMany
+    {
+        return $this->hasMany(Treatment::class);
     }
 
     /**
@@ -58,6 +83,7 @@ class User extends Authenticatable implements JWTSubject
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
             'two_factor_confirmed_at' => 'datetime',
+            'availability_status' => 'string',
         ];
     }
 

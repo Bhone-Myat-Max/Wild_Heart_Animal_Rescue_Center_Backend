@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
-
-class UserController extends BaseController
+class Treatment extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $User = User::get();
-        return $this->success($User, "Successfully Specific User Data get", 200);
-
+        //
     }
 
     /**
@@ -50,8 +46,4 @@ class UserController extends BaseController
     {
         //
     }
-
-    // User::where('id', $request->user_id)
-    // ->update(['availability_status' => 'On Mission']);
-
 }
